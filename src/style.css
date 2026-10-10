@@ -1505,6 +1505,22 @@ dialog textarea {
     display: none;
   }
 }
+@media (max-width: 600px) {
+  .score-heading {
+    position: relative;
+  }
+  .heading-tools .history {
+    display: flex;
+    position: absolute;
+    right: 0;
+    top: 15px;
+    gap: 0;
+  }
+  .heading-tools .history .icon-button {
+    min-width: 32px;
+    min-height: 32px;
+  }
+}
 /* Visual audit: bring transport into the first frame and keep the atlas usable on phones. */
 .shell {
   display: flex;

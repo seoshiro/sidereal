@@ -1,0 +1,34 @@
+[
+  {
+    "name": "Published index exactly matches the local production build",
+    "status": "pass",
+    "url": "https://seoshiro.github.io/sidereal/"
+  },
+  {
+    "name": "Published asset under repository base path matches build",
+    "status": "pass",
+    "path": "./favicon.svg",
+    "bytes": 304,
+    "sha256": "c159f6eb76e3923c205ed4384ae15ded4af24e2c74046aec63de2c3bade014ea"
+  },
+  {
+    "name": "Published asset under repository base path matches build",
+    "status": "pass",
+    "path": "./assets/index-B7U1hBH0.js",
+    "bytes": 40051,
+    "sha256": "3d18f099b5e9c4911ade20279fee15bb8b4af95a707a07add59db119a5ec1c16"
+  },
+  {
+    "name": "Published asset under repository base path matches build",
+    "status": "pass",
+    "path": "./assets/index-CM7WmZOS.css",
+    "bytes": 20431,
+    "sha256": "5a32aae73285e3bd83bed52f2802355dd79e92ceb7ac8b8598110466b6d8370e"
+  },
+  {
+    "name": "Published instrument loads silently, plays through a real AudioContext and stops",
+    "status": "pass",
+    "browser": "153.0.8010.12",
+    "pageErrors": []
+  }
+]

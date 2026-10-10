@@ -9,6 +9,7 @@ The visual result was inspected from actual Chromium screenshots, independently 
 - The mobile atlas was made visible, preserving the same saved-composition features as desktop.
 - Desktop chart size was constrained and control labels enlarged.
 - Mobile layers use a compact three-column arrangement, followed by full-width exact note controls.
+- Undo and redo remain visible and usable by touch on mobile.
 
 ## Evidence
 
@@ -22,6 +23,8 @@ Actual screenshots are stored in this repository:
 - [Mobile 390 in Russian](screenshots/mobile-390-ru.png)
 
 The scripts in `scripts/` reproduce the functional checks and screenshots. JSON receipts in this folder record successful checks. They are evidence of browser and numeric behavior, not a rating of artistic quality.
+
+Published-browser checks are in [live-browser-report.json](live-browser-report.json), deployment/assets checks in [deployment-report.json](deployment-report.json), maximum-load rendering in [stress-report.json](stress-report.json), and the real share-control fallback in [share-report.json](share-report.json).
 
 ## Core checks
 
