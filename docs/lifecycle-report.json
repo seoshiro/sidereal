@@ -1,0 +1,22 @@
+[
+  {
+    "name": "Actual document visibility",
+    "status": "unverified",
+    "reason": "This automation environment keeps document.hidden false even with focus emulation disabled and the owned window minimized.",
+    "actual": {
+      "hidden": false,
+      "visibility": "visible",
+      "playing": true,
+      "voices": 3
+    }
+  },
+  {
+    "name": "Visibility handler pauses and clears voices with a synthetic event",
+    "status": "pass",
+    "synthetic": true
+  },
+  {
+    "name": "Explicit resume after tab returns",
+    "status": "pass"
+  }
+]
