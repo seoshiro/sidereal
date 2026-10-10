@@ -52,6 +52,8 @@ The logo is a native button. Its action does not navigate or reload. It closes a
 
 The [ten-scenario follow-up receipt](home-loader-local-report.json) includes measured delay and reduced-motion timings. Actual mobile [note sheet](screenshots/home-mobile-panel.png) and [atlas](screenshots/home-mobile-atlas.png) captures show the equivalent logo controls inside modals.
 
+All ten scenarios also passed on [the live site](home-loader-live-report.json), with zero page errors. The [follow-up deployment receipt](home-loader-deployment-report.json) verifies the exact new index/CSS/JavaScript/fav icon bytes under `/sidereal/`. The [source commit 741a6c7](https://github.com/seoshiro/sidereal/commit/741a6c729e86f12cc9b1d84e3399c70467464735) has a [successful build and deploy](https://github.com/seoshiro/sidereal/actions/runs/38056946974). Real preparation-to-ready timings were approximately 2.0 seconds; the existing fade adds about 0.24 seconds in normal mode and zero in reduced motion. Failures offer Retry immediately, without this success pause.
+
 ## Remaining verification limits
 
 No human auditory review or physical Safari/iOS device check was available. Headless background tabs keep `document.hidden` false; the pause handler was checked with an explicitly synthetic visibilitychange. No claim of real background-tab lifecycle verification is made.

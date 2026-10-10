@@ -1,0 +1,76 @@
+[
+  {
+    "loading": {
+      "reducedMotion": false,
+      "additionalMilliseconds": 2009.4000000059605,
+      "fadeMilliseconds": 247.09999999403954
+    }
+  },
+  {
+    "name": "real preparation plus approximately two seconds; no percentage; silent/inert while loading",
+    "status": "pass"
+  },
+  {
+    "name": "first-tour logo return restores original sky and marks practice skipped without draft/atlas writes",
+    "status": "pass"
+  },
+  {
+    "name": "normal return closes disclosures, preserves score/draft/atlas and does not restart loader",
+    "status": "pass"
+  },
+  {
+    "name": "keyboard Enter exits listening while preserving active playback and user data",
+    "status": "pass"
+  },
+  {
+    "name": "actual logo controls return from atlas, dense picker, clipboard fallback and export menu",
+    "status": "pass"
+  },
+  {
+    "name": "return from modified practice restores user edits and Undo/Redo history",
+    "status": "pass"
+  },
+  {
+    "name": "RU/EN keyboard names and pending shared URL survive logo/tour return",
+    "status": "pass"
+  },
+  {
+    "loading": {
+      "reducedMotion": false,
+      "additionalMilliseconds": 2004.2000000029802,
+      "fadeMilliseconds": 242.29999999701977
+    }
+  },
+  {
+    "name": "touch RU mobile sheet/atlas/listening/tour returns preserve raw storage and reload",
+    "status": "pass"
+  },
+  {
+    "loading": {
+      "reducedMotion": true,
+      "additionalMilliseconds": 2010.2000000029802,
+      "fadeMilliseconds": 0
+    }
+  },
+  {
+    "name": "reduced motion still adds two seconds, has no assembly animation or fade",
+    "status": "pass"
+  },
+  {
+    "loading": {
+      "reducedMotion": false,
+      "additionalMilliseconds": 2014.9000000059605,
+      "fadeMilliseconds": 244.59999999403954
+    }
+  },
+  {
+    "name": "module failure shows immediate error; Retry keeps the requested success delay",
+    "status": "pass"
+  },
+  {
+    "url": "https://seoshiro.github.io/sidereal/",
+    "browser": "153.0.8010.12",
+    "pageErrors": [],
+    "checkedAt": "2026-10-10T13:46:45.364Z"
+  }
+]
