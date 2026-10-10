@@ -1,0 +1,122 @@
+{
+  "sourceCommit": "189dbe976d403a2a2d475be49a728a66aa8650cf",
+  "url": "https://seoshiro.github.io/sidereal/",
+  "checkedAt": "2026-10-10T13:04:03.7834807Z",
+  "results": [
+    {
+      "name": "first entry: six-step tour, silent until Play, no user draft/atlas writes",
+      "status": "pass"
+    },
+    {
+      "name": "Play/Pause/Resume/Stop preserves focused button and uses real AudioContext",
+      "status": "pass"
+    },
+    {
+      "name": "all presets and live tempo changes preserve valid transport",
+      "status": "pass"
+    },
+    {
+      "name": "keyboard editing, duplicate/delete and Undo/Redo keep focus and open list",
+      "status": "pass"
+    },
+    {
+      "name": "drag changes one note without adding another",
+      "status": "pass"
+    },
+    {
+      "name": "note, duration, intensity, root, scale, timbre, layer M/S and master controls",
+      "status": "pass"
+    },
+    {
+      "name": "listening mode preserves score, selection and disclosure state",
+      "status": "pass"
+    },
+    {
+      "name": "save multiple compositions, restore reload and JSON compatibility",
+      "status": "pass"
+    },
+    {
+      "name": "malformed, oversized, unsupported and hostile imports leave current score untouched",
+      "status": "pass"
+    },
+    {
+      "name": "tour interruption/reload/back/skip strictly preserves draft, atlas and shared URL",
+      "status": "pass"
+    },
+    {
+      "name": "safe share output restores independently without sound",
+      "status": "pass"
+    },
+    {
+      "audio": {
+        "duration": 17.289458333333332,
+        "channels": 2,
+        "sampleRate": 48000,
+        "peak": 0.0651133805513382,
+        "rms": 0.01065371995050858
+      },
+      "wavSHA256": "3410f6c7ac5997c494ea4a9ed63bbee0629f8b49e6d283a50b1e9e60a31566c2"
+    },
+    {
+      "name": "PNG decodes, has shared graphite palette, WAV decodes to non-silent stereo without clipping",
+      "status": "pass"
+    },
+    {
+      "stressAudio": {
+        "duration": 17.289458333333332,
+        "channels": 2,
+        "sampleRate": 48000,
+        "peak": 0.2216874063014984,
+        "rms": 0.01779127657194774
+      }
+    },
+    {
+      "name": "96-note duplication limit and worst-case WAV remain bounded",
+      "status": "pass"
+    },
+    {
+      "name": "repeat clicks, reduced motion, Stop idle and beat-only text updates",
+      "status": "pass"
+    },
+    {
+      "name": "responsive RU/EN at 360/390/768/1366/1440/1920 and short laptop",
+      "status": "pass"
+    },
+    {
+      "name": "mobile panel focus trap, open list, dense-note picker and six-step tour",
+      "status": "pass"
+    },
+    {
+      "contrast": {
+        "secondaryOnSurface": 7.8127598210594815,
+        "textOnSurface": 15.81597910377611,
+        "textOnRaised": 14.086019631344127,
+        "primary": 11.887494624777053
+      }
+    },
+    {
+      "name": "200% text size, contrast, 14px controls and visible keyboard focus",
+      "status": "pass"
+    },
+    {
+      "limitation": "Headless Chromium does not hide background tabs; hidden-tab handler checked with explicit visibilitychange, not a physical tab-switch claim."
+    },
+    {
+      "name": "70 seconds playback with bounded nodes; background lifecycle handler pauses",
+      "status": "pass"
+    },
+    {
+      "name": "blocked storage and unavailable audio/export show separate truthful errors",
+      "status": "pass"
+    },
+    {
+      "name": "real preparation loader waits for module and failure offers working Retry",
+      "status": "pass"
+    },
+    {
+      "browser": "153.0.8010.12",
+      "pageErrors": [],
+      "auditoryReview": "No human listening available. Real AudioContext, waveform decode and clipping checks only."
+    }
+  ]
+}

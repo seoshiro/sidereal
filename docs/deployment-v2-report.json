@@ -1,0 +1,37 @@
+{
+  "commit": "189dbe976d403a2a2d475be49a728a66aa8650cf",
+  "checkedAt": "2026-10-10T12:59:26.784Z",
+  "url": "https://seoshiro.github.io/sidereal/",
+  "files": [
+    {
+      "path": "index.html",
+      "status": 200,
+      "bytes": 4656,
+      "sha256": "79f029948b583a277b88d7d2aeab8bac9936da5e92c7a128363c343d5497ab6c"
+    },
+    {
+      "path": "favicon.svg",
+      "status": 200,
+      "bytes": 418,
+      "sha256": "db3cfc40a94fe1bbcb4e5d3265a8fa98747d5cf4af887c7861ab42462f44ef70"
+    },
+    {
+      "path": "assets/index-BeksmDuS.js",
+      "status": 200,
+      "bytes": 3067,
+      "sha256": "6290392c7eb663dd049095addadc79cf35c37e612e3763fe3f9d907d84738e35"
+    },
+    {
+      "path": "assets/index-Bev-aEro.css",
+      "status": 200,
+      "bytes": 24195,
+      "sha256": "3d86ebcd233afd3a2408b549498dacbea5826b7f1e47e36644e70d41d9330e46"
+    },
+    {
+      "path": "assets/main-C6qpz51K.js",
+      "status": 200,
+      "bytes": 61723,
+      "sha256": "47c364f6b46e7381765969a4862a665c7ad3b63b1379b10e0fa58c19a1bacf6a"
+    }
+  ]
+}

@@ -1,0 +1,109 @@
+{
+  "sourceCommit": "189dbe976d403a2a2d475be49a728a66aa8650cf",
+  "url": "https://seoshiro.github.io/sidereal/",
+  "checkedAt": "2026-10-10T13:04:04.0104082Z",
+  "results": [
+    {
+      "name": "Actual CDP touch swipe across empty orbit scrolls the mobile page",
+      "status": "pass"
+    },
+    {
+      "name": "Mobile header, transport and panel targets are at least 44 x 44 CSS px",
+      "status": "pass",
+      "targets": [
+        {
+          "id": "action-atlas",
+          "width": 44,
+          "height": 44
+        },
+        {
+          "id": "action-listening",
+          "width": 44,
+          "height": 44
+        },
+        {
+          "id": "action-help",
+          "width": 44,
+          "height": 44
+        },
+        {
+          "id": "action-language",
+          "width": 44,
+          "height": 44
+        },
+        {
+          "id": "export-summary",
+          "width": 44,
+          "height": 44
+        },
+        {
+          "id": "action-json",
+          "width": 272,
+          "height": 44
+        },
+        {
+          "id": "action-png",
+          "width": 272,
+          "height": 44
+        },
+        {
+          "id": "action-wav",
+          "width": 272,
+          "height": 44
+        },
+        {
+          "id": "action-share",
+          "width": 272,
+          "height": 44
+        },
+        {
+          "id": "action-import",
+          "width": 272,
+          "height": 44
+        },
+        {
+          "id": "action-play",
+          "width": 118,
+          "height": 44
+        },
+        {
+          "id": "action-stop",
+          "width": 44,
+          "height": 44
+        },
+        {
+          "id": "layer-mute",
+          "width": 44,
+          "height": 44
+        },
+        {
+          "id": "layer-solo",
+          "width": 44,
+          "height": 44
+        },
+        {
+          "id": "action-panel",
+          "width": 175,
+          "height": 44
+        },
+        {
+          "id": "action-list",
+          "width": 175,
+          "height": 44
+        }
+      ]
+    },
+    {
+      "name": "Malformed draft recovers silently and preserves raw data until an actual edit",
+      "status": "pass"
+    },
+    {
+      "name": "200% mobile text: focused duration field scrolls into unobscured sheet viewport",
+      "status": "pass"
+    },
+    {
+      "name": "Reduced-motion preparation has no assembling animation; real completion removes loader",
+      "status": "pass"
+    }
+  ]
+}

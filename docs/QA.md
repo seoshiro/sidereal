@@ -36,7 +36,13 @@ Normal control labels are at least 14 px. Measured contrast: secondary on surfac
 
 PNG decodes as **1600 × 1880**; its corner pixel is exactly `[12,13,18,255]`. WAV header is stereo **44.1 kHz PCM16**. Chromium's decoder can resample to its default 48 kHz context; reported decoded values state that rate explicitly. Peak and energy checks are waveform checks, not human listening.
 
-The new local [20-scenario browser receipt](browser-v2-report.json) and [five interaction checks](interaction-v2-report.json) are included. Published-site and asset receipts are added after deployment and use the same scripts. The published index and every production asset are compared with the local build under the repository base path.
+The new local [20-scenario browser receipt](browser-v2-report.json) and [five interaction checks](interaction-v2-report.json) are included. The same **20 browser scenarios and five interaction checks passed on the published site**: [live browser receipt](live-browser-v2-report.json), [live interaction receipt](live-interaction-v2-report.json). No page errors occurred in normal browser scenarios.
+
+The deployed source revision is [`189dbe9`](https://github.com/seoshiro/sidereal/commit/189dbe976d403a2a2d475be49a728a66aa8650cf); its [GitHub Actions build and deploy succeeded](https://github.com/seoshiro/sidereal/actions/runs/38053891275). The [deployment receipt](deployment-v2-report.json) verifies HTTP 200 and exact bytes/SHA-256 for index, favicon, both JavaScript bundles and CSS under `/sidereal/`.
+
+The default exported WAV decoded with peak **0.06511** and RMS **0.01065** across stereo channels. The 96-note test at 80% master volume decoded with peak **0.22169**; all layers muted produced exact zero. This is numeric evidence and does not imply listening quality.
+
+Final screenshots were captured from GitHub Pages. The loading captures hold the actual module request so the real preparation state can be inspected; the product adds no artificial preparation delay. A separate screenshot audit caught overlapping layer names at 200% text despite a passing overflow assertion. The corrected layout stacks layers and panel triggers, gives the title its own row, and keeps all text readable.
 
 ## Remaining verification limits
 
