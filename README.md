@@ -2,46 +2,47 @@
 
 **Draw a constellation. Hear an orbit.**
 
-A small musical observatory by **Beibars / [seoshiro](https://github.com/seoshiro)**. Plant notes in a circular sky and let a clockwise cursor play them as a four-bar composition. A precise sequencer with the quiet, graphic character of an astronomical atlas.
+A free musical observatory by **Beibars / [seoshiro](https://github.com/seoshiro)**. Place notes in a circular sky and hear a four-bar composition played by a clockwise orbital cursor. A working musical instrument and creative toy, built with SVG and Web Audio.
 
-**[Open the instrument](https://seoshiro.github.io/sidereal/)** · [Verification notes](docs/QA.md) · [MIT license](LICENSE)
+**[Open SIDEREAL](https://seoshiro.github.io/sidereal/)** · [Verification](docs/QA.md) · [MIT license](LICENSE)
 
-![SIDEREAL desktop interface at 1440 px](docs/screenshots/desktop-1440.png)
+![SIDEREAL graphite editor at 1920 × 1080](docs/screenshots/editor-1920.png)
 
-## Make a sky
+## Play and compose
 
-1. Choose **Evening atlas**, **Glass meridian**, or **A slow departure**, or start a new empty sky.
-2. Select a constellation: **Lyra**, **Cygnus**, or **Vela**. Each has an independent synthesized voice and mute/solo controls.
-3. Click the sky to plant a note. Clockwise changes its time; outward changes its pitch. Notes are quantized to the selected scale.
-4. Edit the exact note, eighth-note step, duration, intensity, root, scale, voice, and tempo. Press **Play** when ready.
-5. Save a named composition to the local atlas, or export a file.
+First entry opens an interactive six-step guide in its own practice sky. Play the example, choose a constellation, add a star, move it, change its duration or intensity, then save it to the practice atlas. Back, Next and Skip are available; the guide resumes after reload. **How to use** repeats it. Practice never writes your draft or personal atlas, and it preserves an incoming shared score.
 
-There are 32 eighth-note positions in a 16-beat orbit, 15 available scale degrees per voice, 3 constellations, and a limit of 96 stars. The scale can be pentatonic, natural minor, Dorian, or major; tempo ranges from 40 to 180 BPM. Duration can be a quarter, half, one, two, or four beats. Bell, felt, and tide voices have different envelopes and octave ranges.
+Outside the guide, open **Atlas & presets** for three deterministic starting compositions or an empty sky. Select **Lyra**, **Cygnus** or **Vela**; each has an independent synthesized voice and mute/solo controls. Click the orbit to add a note, drag to move it, or use the exact note controls and Star list. Angle is time; radius is pitch.
 
-## Keep and share your work
+An orbit has **16 beats = 32 eighth-note steps**. There are 15 scale degrees per voice, three constellations and up to 96 stars. Choose pentatonic, natural minor, Dorian or major tuning; root C–B; tempo 40–180 BPM; durations 0.25, 0.5, 1, 2 or 4 beats. Glass bell, Felt keys and Low tide differ in register and envelope. Duplicate copies a selected note to the next step. Listening mode enlarges the orbit and returns to the same editor selection and disclosure state.
 
-- The current sky restores automatically on the same device. The atlas stores up to 24 named compositions. Saving an existing composition updates its atlas entry.
-- **Score JSON** is a portable, validated SIDEREAL v1 file. Import rejects invalid versions, ranges, duplicated or unsafe IDs, files over 60 KB, and more than 96 notes. Unknown fields are stripped.
-- **Share links** carry the score in the URL fragment, with a 12,000-character limit. The app does not upload the score to a server. Anyone who has the link can read it; this is not encryption or access control. Large scores should be shared as files. Opening a link never starts sound, and the link is consumed so subsequent reloads restore your edits.
-- **PNG** exports a 1600 × 1880 visual score with its title, tuning, tempo, and voices.
-- **WAV** renders one orbit at 44.1 kHz, stereo, 16-bit PCM, including the final release tails. It respects layer mute/solo and the master volume. Master mute controls listening; it does not silently blank a WAV export.
+Sound starts only after **Play** or **Listen to this star**. Pause preserves position; Stop resets the orbit and clears voices. Master mute and volume remain beside the transport. Changing a preset stops playback. A hidden page pauses and requires an explicit restart.
 
-Browser storage is local, not a backup. Clearing browser data removes the atlas. Export a JSON file for work you want to keep.
+## Save, transfer and export
 
-## Keyboard, touch, and accessibility
+- The edited draft restores on this device. Its status explicitly distinguishes saved, unsaved and failed writes. **Save composition** stores a named entry in a separate local atlas, up to 24 compositions; saving the same composition updates it.
+- **Score file · JSON** exports the portable SIDEREAL v1 format. Import validates version, types, bounds, unique safe IDs and maximum 96 notes. Files over 60 KB are rejected. Unknown fields are stripped.
+- **Share links** carry validated score data in the URL fragment, limited to 12,000 encoded characters. The score is not uploaded by the app. Anyone with the link can read it. Large scores should travel as JSON. The fragment stays intact until you actually edit or save the incoming score, including while practising the guide.
+- **PNG** exports a real 1600 × 1880 constellation score with title, tempo, tuning and voices, using the same graphite and constellation palette as the editor.
+- **WAV** uses `OfflineAudioContext` to render one orbit and release tails into stereo 44.1 kHz, 16-bit PCM. It respects layer mute/solo and master volume. Master mute affects listening and does not silently blank the file.
 
-- **Space** plays or pauses outside form controls; **Escape** stops sound.
-- Focus a star and use **Left / Right** for time and **Up / Down** for pitch. **Enter** opens its exact controls; **Delete** removes it.
-- **Ctrl/Cmd + Z** undoes; **Ctrl/Cmd + Shift + Z** redoes. The history holds 60 edits and resets on reload.
-- **Add a star**, the inspector, the linear score, and the **Star list** provide alternatives to dragging the SVG.
-- Native buttons, selects, inputs, dialogs, visible focus, accessible names, live status messages, and one RU/EN translation table are used throughout.
-- On phones, the transport remains available while scrolling. Empty areas of the sky allow vertical touch scrolling. Reduced motion disables the sweep and note pulses while preserving sound and the beat readout.
+Local browser storage is not a backup. Clearing site data removes saved compositions. Export JSON for work you want to keep.
 
-<img src="docs/screenshots/mobile-390.png" alt="SIDEREAL complete mobile interface at 390 px" width="320">
+## Keyboard, touch and motion
 
-## Run locally
+- **Space** plays/pauses outside form controls; **Escape** stops sound and closes the mobile note sheet or export menu.
+- Focus a star: **Left/Right** changes time, **Up/Down** changes pitch, **Enter** opens exact parameters, **Delete/Backspace** removes it.
+- **Ctrl/Cmd + Z** undoes; **Ctrl/Cmd + Shift + Z** redoes. History holds 60 edits and resets on reload. Play and Undo retain focus across UI updates.
+- **Alt + Left/Right** navigates the guide. Native button and form keyboard controls also work throughout.
+- On phones, orbit and transport come first; compact layers follow. Note settings and the Star list open an internally scrolling sheet with contained focus. Close restores focus to its opener. Close stars offer a chooser; the list is an alternative to dragging. Empty orbit space permits normal vertical touch scrolling.
+- Native controls, accessible names, visible focus, live status and one RU/EN translation table are used. M/S explanations appear on hover and keyboard focus. Normal control text is 14–16 px. Secondary text on the surface has a measured 7.81:1 contrast ratio.
+- Reduced motion removes the sweep, pulses and loader assembly animation while preserving audio and the beat counter. Stop cancels the visual loop; the counter changes only when the displayed beat changes.
 
-Node.js 22.12+ or 24 and npm are needed for development. The published instrument has no runtime dependencies or server.
+<img src="docs/screenshots/editor-mobile390.png" alt="SIDEREAL editor on a 390 px phone" width="320"> <img src="docs/screenshots/tour-mobile.png" alt="Interactive practice guide on a 390 px phone" width="320">
+
+## Run and verify
+
+Use Node.js 22.12+ or 24 with npm. Production is static and has no runtime package dependencies.
 
 ```sh
 npm ci --ignore-scripts
@@ -50,40 +51,37 @@ npm test
 npm run build
 ```
 
-For browser verification:
+Browser QA uses an owned, temporary Chromium profile:
 
 ```sh
 npx playwright install chromium
-npm run dev
+# Keep npm run dev running in another terminal.
 npm run qa
-node scripts/edge-qa.mjs
-node scripts/capture.mjs
+node scripts/interaction-v2.mjs
+node scripts/capture-v2.mjs
 ```
 
-Set `QA_URL` to a built preview or published URL. Set `QA_BROWSER` to an existing Chromium executable when needed. QA launches a separate temporary browser; it never attaches to a personal browser profile. Outputs go to ignored `qa-artifacts/`. Screenshot capture writes `docs/screenshots/`.
+Set `QA_BROWSER` to an existing Chromium executable and `QA_URL` to the published site when needed. Reports/downloads go to ignored `qa-artifacts/`; real screenshots go to `docs/screenshots/`. The browser tests include an actual 70-second playback check. They do not establish human listening quality.
 
 ## Architecture
 
-| File                 | Responsibility                                                                                            |
-| -------------------- | --------------------------------------------------------------------------------------------------------- |
-| `src/model.ts`       | Versioned score model, deterministic presets, scale mapping, geometry, validation, URL serialization      |
-| `src/audio.ts`       | Web Audio voices, bounded scheduler, amplitude budget, compressor, offline render, PCM WAV encoder        |
-| `src/main.ts`        | Instrument UI, selection and drag, keyboard editing, local atlas, undo/redo, file handling and PNG export |
-| `src/i18n.ts`        | One keyed RU/EN translation table                                                                         |
-| `src/style.css`      | Custom observatory design and responsive/reduced-motion layouts                                           |
-| `tests/core.test.ts` | Model, geometry, scale and untrusted-input checks                                                         |
-| `scripts/*qa.mjs`    | Browser interaction, audio decode, responsive and lifecycle checks                                        |
+| File                              | Responsibility                                                                                  |
+| --------------------------------- | ----------------------------------------------------------------------------------------------- |
+| `src/boot.ts`, `index.html`       | Real module preparation, quiet reduced-motion loading, error/retry fallback                     |
+| `src/model.ts`                    | Unchanged v1 music model, deterministic presets, geometry, validation, share codec              |
+| `src/audio.ts`                    | Unchanged finite Web Audio voices, bounded scheduler, amplitude budget, compressor, offline WAV |
+| `src/ui.ts`, `src/main.ts`        | One static shell, keyed SVG/list updates, transport, editing, history, atlas and exports        |
+| `src/lesson.ts`, `src/storage.ts` | Validated separate practice record and honest storage result handling                           |
+| `src/palette.ts`, `src/style.css` | Shared design tokens, responsive layouts, focus and motion rules                                |
+| `src/i18n.ts`                     | One keyed RU/EN translation table                                                               |
+| `tests/`, `scripts/`              | Model/storage tests and browser/interaction/capture verification                                |
 
-The audio context is created only after Play or Listen. The scheduler runs every 25 ms with a 100 ms scheduling horizon. Oscillators have finite stop times and disconnect when complete. Pause, Stop, and layer edits clear outstanding voices. The amplitude budget accounts for overlapping note tails and reserves room for a preview voice; a compressor smooths transients. A hidden tab pauses playback and requires an explicit restart.
+The audio scheduler runs every 25 ms with a 100 ms horizon. Oscillators have finite stop times and disconnect on completion. Pause, Stop and musical edits clear outstanding voices. An amplitude budget accounts for overlapping tails and reserves a preview voice; compression and WAV peak limiting protect the output. Visual animation reads the audio clock and does not schedule sound.
 
-No samples, commercial recordings, external fonts, analytics, network APIs, keys, accounts, billing, or paid services are used. GitHub Pages serves the built static assets. Vite uses a relative base, so `/sidereal/` works. The Actions workflow tests and builds the source before deploying.
+No samples, commercial recordings, remote fonts, analytics, paid APIs, keys, account registration or billing. GitHub Pages serves the build for free. Vite's relative asset base supports `/sidereal/`. GitHub Actions runs model/storage tests, strict type checking and the production build before Pages deployment.
 
 ## Honest limits
 
-- This is a fixed four-bar, three-voice instrument. It does not record microphone audio, import MIDI, or synchronize devices.
-- Browser audio and storage availability differ, especially in private browsing and mobile browsers. If Web Audio is unavailable, visual editing remains usable and Play reports an error.
-- Background playback is deliberately paused. On phones, use the exact controls or Star list when close stars are awkward to touch.
-- PNG is a visual constellation score, not standard staff notation. WAV exports one pass with its release tails, not an infinitely looping file.
-- Automated QA verified real Web Audio rendering and decode. It is **not a human listening review**. Real iOS/Safari and physical-device listening are still recommended.
+This is a fixed four-bar, three-voice instrument, without MIDI import, microphone recording or device synchronization. PNG is a constellation score, not staff notation; WAV is one pass with its tails. Browser audio/storage behavior varies, particularly in private browsing and Safari/iOS. Failures report separate audio, storage, PNG or WAV errors while editing remains available.
 
-See [QA evidence and visual audit](docs/QA.md) for tested versions, scenarios, and remaining verification limits.
+Human listening and physical-device Safari/iOS verification were unavailable. Headless Chromium keeps background tabs visible in this environment, so the pause handler was tested with an explicitly synthetic visibility event. Real touch input was tested through Chromium CDP. These limits and exact receipts are recorded in [QA evidence](docs/QA.md).

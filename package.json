@@ -6,8 +6,8 @@
   "scripts": {
     "dev": "vite --host 127.0.0.1",
     "build": "tsc --noEmit && vite build",
-    "test": "node --import tsx --test tests/core.test.ts",
-    "qa": "node scripts/browser-qa.mjs"
+    "test": "node --import tsx --test tests/*.test.ts",
+    "qa": "node scripts/browser-v2.mjs"
   },
   "devDependencies": {
     "@playwright/test": "^1.56.0",

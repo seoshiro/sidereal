@@ -1,4 +1,125 @@
 export const words = {
+  atlas: ["Atlas & presets", "Атлас и пресеты"],
+  listenmode: ["Listening mode", "Прослушивание"],
+  editmode: ["Back to editing", "Вернуться к редактору"],
+  guide: ["How to use", "Как пользоваться"],
+  settings: ["Note settings", "Параметры ноты"],
+  advanced: ["Tuning & voice", "Строй и тембр"],
+  duplicate: ["Duplicate note", "Дублировать ноту"],
+  stepplain: ["Eighth-note step", "Восьмой шаг"],
+  beatsplain: ["Duration in beats", "Длительность в долях"],
+  orbitlength: [
+    "16 beats = 32 eighth-note steps",
+    "16 долей = 32 восьмых шага",
+  ],
+  coordinates: [
+    "Angle → time · Radius → pitch",
+    "Угол → время · Радиус → нота",
+  ],
+  draftsaved: [
+    "Draft saved on this device",
+    "Черновик сохранён на этом устройстве",
+  ],
+  draftunsaved: ["Draft has not been saved yet", "Черновик ещё не сохранён"],
+  draftfailed: [
+    "Draft could not be saved. Export JSON to keep it.",
+    "Черновик не сохранён. Экспортируй JSON, чтобы сохранить его.",
+  ],
+  sharedsky: [
+    "Shared sky · your previous draft is untouched",
+    "Небо по ссылке · прежний черновик не изменён",
+  ],
+  lessonstatus: [
+    "Practice sky · your own sky is safe",
+    "Учебное небо · твоя композиция в безопасности",
+  ],
+  practicetitle: ["Practice sky", "Учебное небо"],
+  mutehelp: ["Mute this constellation", "Заглушить созвездие"],
+  solohelp: ["Keep only this constellation", "Оставить только это созвездие"],
+  lessonback: ["Back", "Назад"],
+  lessonnext: ["Next", "Далее"],
+  lessonskip: ["Skip guide", "Пропустить"],
+  lessonfinish: ["Finish guide", "Завершить"],
+  lessonready: ["Done. Continue when ready.", "Готово. Можно продолжать."],
+  lessonwait: [
+    "Try the highlighted action, or skip.",
+    "Попробуй выделенное действие или пропусти.",
+  ],
+  lesson1title: ["Hear your first orbit", "Послушай первую орбиту"],
+  lesson1body: [
+    "Press Play on this practice sky. One turn is four bars. Your own sky stays untouched.",
+    "Нажми «Играть» в учебном небе. Один оборот — четыре такта. Твоя композиция не изменится.",
+  ],
+  lesson2title: ["Choose a constellation", "Выбери созвездие"],
+  lesson2body: [
+    "Choose Cygnus or Vela. Each constellation has its own colour and voice.",
+    "Выбери Cygnus или Vela. У каждого созвездия свой цвет и тембр.",
+  ],
+  lesson3title: ["Plant a star", "Добавь звезду"],
+  lesson3body: [
+    "Click an empty part of the orbit, or use Add a star. This becomes your selected note.",
+    "Нажми на свободное место орбиты или «Добавить звезду». Новая нота станет выделенной.",
+  ],
+  lesson4title: ["Move the music", "Перемести музыку"],
+  lesson4body: [
+    "Drag the selected star, or focus it and use arrow keys. Clockwise changes time; outward raises pitch.",
+    "Перетащи выделенную звезду или используй стрелки на ней. По часовой стрелке — меняется время; от центра — выше нота.",
+  ],
+  lesson5title: ["Shape a note", "Настрой ноту"],
+  lesson5body: [
+    "Change its duration or intensity in Note settings. Short notes sparkle; long notes overlap.",
+    "Измени длительность или силу звука в параметрах. Короткие ноты звучат отрывисто; длинные перекрываются.",
+  ],
+  lesson6title: ["Keep your constellation", "Сохрани созвездие"],
+  lesson6body: [
+    "Save this example to the practice atlas. JSON transfers the score; WAV renders audio. Your own atlas is separate.",
+    "Сохрани пример в учебный атлас. JSON переносит партитуру; WAV записывает звук. Твой атлас хранится отдельно.",
+  ],
+  practicesaved: [
+    "Saved to the practice atlas. Your own atlas is untouched.",
+    "Сохранено в учебный атлас. Твой атлас не изменён.",
+  ],
+  tourfinished: [
+    "Your own sky is restored. Open How to use to repeat the guide.",
+    "Твоё небо восстановлено. «Как пользоваться» повторит обучение.",
+  ],
+  audiofailed: [
+    "Sound could not start. Check browser audio access and try Play again.",
+    "Звук не запустился. Проверь доступ браузера к аудио и попробуй снова.",
+  ],
+  pngfailed: [
+    "PNG could not be exported. Your score is unchanged.",
+    "Не удалось экспортировать PNG. Партитура не изменилась.",
+  ],
+  wavfailed: [
+    "WAV could not be rendered in this browser. Your score is unchanged.",
+    "Не удалось записать WAV в этом браузере. Партитура не изменилась.",
+  ],
+  filefailed: [
+    "The score file could not be exported.",
+    "Не удалось экспортировать файл партитуры.",
+  ],
+  eveningdesc: [
+    "Gentle bells, warm keys and a slow bass pulse.",
+    "Мягкие колокола, тёплые клавиши и медленный бас.",
+  ],
+  glassdesc: [
+    "A brighter, interlocking pattern at 104 BPM.",
+    "Светлый переплетающийся рисунок при 104 BPM.",
+  ],
+  driftdesc: [
+    "A spacious minor sky, moving slowly at 56 BPM.",
+    "Просторное минорное небо при 56 BPM.",
+  ],
+  selectnearby: ["Choose a nearby star", "Выбери близкую звезду"],
+  selectedlabel: ["Selected note", "Выбранная нота"],
+  panelclose: ["Close note settings", "Закрыть параметры ноты"],
+  starone: ["star", "звезда"],
+  starfew: ["stars", "звезды"],
+  lessonpaused: [
+    "Guide paused while this panel is open",
+    "Обучение продолжится после закрытия панели",
+  ],
   observatory: ["Musical observatory", "Музыкальная обсерватория"],
   subtitle: [
     "Draw a constellation. Hear an orbit.",

@@ -1,7 +1,0 @@
-[
-  {
-    "name": "Real Share control produces a valid link through the clipboard-free fallback; shared edits survive reload",
-    "status": "pass",
-    "clipboard": "OS clipboard never read or changed"
-  }
-]

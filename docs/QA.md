@@ -1,51 +1,47 @@
-# Verification and visual audit
+# SIDEREAL graphite revision — verification
 
-The visual result was inspected from actual Chromium screenshots, independently of the tests. The instrument uses a restricted ink / brass / sea-glass / lilac palette, a large circular score, clear selected-note hierarchy, thin functional construction lines, and serif titles with compact technical labels. No decorative particle field, stock recordings, procedural 3D, or repeated product cards are used.
+This document concerns the revised interface, practice guide and persistence behavior. Previous interface reports are not counted as evidence for this revision.
 
-## Changes from the first visual prototype
+## Visual audit
 
-- Play, Stop, tempo and master controls were moved directly beneath the composition name so sound does not require finding controls below a large chart.
-- The mobile transport stays available while scrolling.
-- The mobile atlas was made visible, preserving the same saved-composition features as desktop.
-- Desktop chart size was constrained and control labels enlarged.
-- Mobile layers use a compact three-column arrangement, followed by full-width exact note controls.
-- Undo and redo remain visible and usable by touch on mobile.
+Actual Chromium PNGs were reviewed separately from functional assertions. The chosen composition uses graphite `#0C0D12`, surface `#171921`, text `#F2F3F7`, secondary `#A7ADBD` and accent `#B9C9FF`. Lyra, Cygnus and Vela use pale blue, rose and sea glass. Fine orbit lines carry musical coordinates; only the selected note is labelled in the sky. A precise cursor and short note pulses follow music. No particle field, decorative gradients or procedural 3D.
 
-## Evidence
+Corrections made from real captures: constrain the orbit in both dimensions; fix tablet aspect ratio; remove mobile horizontal overflow caused by an invisible tooltip; enlarge mobile header targets; compact the tablet save control; close export popovers after selection/outside interaction; keep Play/Undo focus; preserve an open note list; keep background controls inert while the mobile sheet updates.
 
-Actual screenshots are stored in this repository:
+Real screenshots:
 
-- [Desktop 1440](screenshots/desktop-1440.png)
-- [Desktop 1920](screenshots/desktop-1920.png)
-- [Mobile 360](screenshots/mobile-360.png)
-- [Mobile 390](screenshots/mobile-390.png)
-- [Tablet 768](screenshots/tablet-768.png)
-- [Mobile 390 in Russian](screenshots/mobile-390-ru.png)
+- [Desktop 1920 × 1080](screenshots/editor-1920.png), [1440 × 900](screenshots/editor-1440.png), [1366 × 768](screenshots/editor-1366.png), [short laptop 1366 × 600](screenshots/editor-short.png)
+- [Phone 390](screenshots/editor-mobile390.png), [phone 360](screenshots/editor-mobile360.png), [phone in Russian](screenshots/editor-mobile390-ru.png), [tablet 768](screenshots/editor-tablet768.png)
+- [Mobile note sheet](screenshots/note-mobile.png), [desktop guide](screenshots/tour-desktop.png), [mobile guide](screenshots/tour-mobile.png)
+- [Preparation loader](screenshots/loading.png), [reduced-motion mobile loader](screenshots/loading-reduced-mobile.png)
+- [200% mobile text](screenshots/text200-mobile.png), [200% focused note sheet](screenshots/text200-panel.png)
 
-The scripts in `scripts/` reproduce the functional checks and screenshots. JSON receipts in this folder record successful checks. They are evidence of browser and numeric behavior, not a rating of artistic quality.
+## UX audit
 
-Published-browser checks are in [live-browser-report.json](live-browser-report.json), deployment/assets checks in [deployment-report.json](deployment-report.json), maximum-load rendering in [stress-report.json](stress-report.json), and the real share-control fallback in [share-report.json](share-report.json).
+The guide uses a separate validated `sidereal.lesson.v2` record. Browser checks compare the original `sidereal.draft.v1` and `sidereal.atlas.v1` strings before/after practice, saved practice, Back, reload, Skip and completion. Shared URL fragments remain intact throughout practice. Playback never starts on entry or reload. Listening mode preserves score, selection and disclosures. Exact parameters and the note list complement drag; dense notes open a chooser. Failed draft writes are visibly distinguished from atlas saving.
 
-## Core checks
+## Accessibility audit
 
-`npm test`: seven test groups, including 480 reachable coordinate round-trips, deterministic presets, voice registers, mute/solo semantics, schema bounds, malicious identifiers, field stripping, Unicode shares, malformed JSON and large input rejection.
+Normal control labels are at least 14 px. Measured contrast: secondary on surface **7.81:1**, text on surface **15.82:1**, text on raised surface **14.09:1**, primary control **11.89:1**. Key controls expose names, states and visible focus. M/S tooltips work by hover and focus. DOM order follows orbit → transport → layers → note inspector. Mobile sheets contain focus, make background controls inert and return focus on close. A 200% root text-size pass verifies no horizontal overflow and an unobscured focused field. Reduced motion cancels the cursor/pulse assembly while retaining audio/readout.
 
-`npm run build`: TypeScript strict checking and static production build. No runtime libraries, remote fonts, or external audio assets.
+## Reproducible checks
 
-## Browser checks
+`npm test`: **10 passing groups**. Existing v1 validation, deterministic music, 480 coordinate round-trips, scales, mute/solo, hostile/oversized input and Unicode shares; new practice validation, strict draft/atlas isolation and blocked-storage checks.
 
-The browser report covers gesture-only audio initialization, real AudioContext running state, play/pause/resume/stop, preset changes, live tempo changes, mouse drag, keyboard editing, add/delete/undo/redo, exact note controls, voice/scale/root changes, layer mute/solo, master mute, local atlas and draft reload, malformed and hostile import, valid import/export, decoding both exported formats, RU/EN, dialog focus, reduced motion, share links, responsive widths, repeated preview clicks, and 70 seconds of bounded playback.
+`npm run build`: strict TypeScript and static Vite build. `src/audio.ts` is byte-for-byte unchanged: SHA-256 `125c1db26c0ffec247f678432145bcae7608b579d3b82d38d6a19f6b4e338946`. `src/model.ts` changes only the palette export; v1 schema, storage keys, presets, timing and share encoding remain compatible.
 
-PNG was decoded by Chromium as 1600 × 1880. WAV was decoded through `AudioContext.decodeAudioData` as non-silent stereo PCM at 44.1 kHz; measured peak remained below clipping. Stop cleared all active voices. Refer to the report for the exact values and browser version.
+`scripts/browser-v2.mjs`: first-entry guide; six steps on desktop/mobile; real AudioContext play/pause/resume/stop; preset/live-tempo changes; drag/keyboard; duplicate/limit/history/focus; notes/durations/intensity/tuning/timbres; layer/master mute and solo; multiple atlas entries/reload; malformed/hostile/oversized imports; share output and denied-clipboard fallback; practice interruption/reload/Back/Skip/completion isolation; listening mode; PNG/WAV decoding; maximum 96-note audio export and exact silence when all layers mute; repeated clicks; stopped visual loops and beat-only updates; RU/EN at 360/390/768/1366/1440/1920 and 1366 × 600; 200% text; 70 seconds of bounded playback; unavailable audio/storage/WAV; real module-loading failure and working Retry.
 
-The maximum-load check rendered 96 simultaneous stars at full intensity and 80% master volume. The decoded peak was **0.34514**, below full scale. Muting all three layers rendered a WAV with an exact zero peak. Escape while a form control has focus also stops playback and updates the transport.
+`scripts/interaction-v2.mjs`: actual CDP touch swipe over empty SVG; 44 × 44 mobile primary targets; corrupt draft recovery without overwriting raw data; 200% focused field visibility; reduced-motion loader and real completion.
 
-## Environment limits encountered
+PNG decodes as **1600 × 1880**; its corner pixel is exactly `[12,13,18,255]`. WAV header is stereo **44.1 kHz PCM16**. Chromium's decoder can resample to its default 48 kHz context; reported decoded values state that rate explicitly. Peak and energy checks are waveform checks, not human listening.
 
-- The supported Library upload helper reported `Library prepare_uploads is not available`. No Library IDs were created. The real PNG screenshots are provided in `docs/screenshots/` instead.
-- The additional `21st review` CLI was rejected by automatic approval review because its network behavior and possible source disclosure were not established. The local source, runtime UI and real screenshots were audited directly.
-- Chromium automation kept `document.hidden` false even in an owned offscreen/minimized browser with focus emulation disabled. The pause-on-visibility handler was checked with an explicitly **synthetic** event; an actual hidden-tab lifecycle still needs a manual device check. This is not presented as a real tab-switch verification.
+The new local [20-scenario browser receipt](browser-v2-report.json) and [five interaction checks](interaction-v2-report.json) are included. Published-site and asset receipts are added after deployment and use the same scripts. The published index and every production asset are compared with the local build under the repository base path.
 
-## Limits
+## Remaining verification limits
 
-Human listening is unavailable in this execution environment. No claim of actual auditory review is made. Headless Chromium checks do not establish Safari/iOS compatibility or physical-device ergonomics. The edge report distinguishes actual lifecycle events from any headless environment limitation. GitHub CI and published-path verification are recorded after deployment.
+No human auditory review or physical Safari/iOS device check was available. Headless background tabs keep `document.hidden` false; the pause handler was checked with an explicitly synthetic visibilitychange. No claim of real background-tab lifecycle verification is made.
+
+The supported Library upload workflow reported `Library prepare_uploads is not available`; there are no `library_file_id` values. The requested fallback is the real public PNG files in `docs/screenshots/`.
+
+An earlier attempt to use `21st review` was rejected by automatic approval review because the third-party CLI's network behavior and possible source disclosure were not established. It was not retried; this revision was audited through local source inspection, runtime interaction and actual screenshots.

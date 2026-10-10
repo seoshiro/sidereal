@@ -1,7 +1,0 @@
-[
-  "focused unselected star edits itself with keyboard",
-  "real touch swipe over empty SVG scrolls the page",
-  "headless browser does not hide background tabs: manual device check remains",
-  "corrupt local draft recovers to a silent default score",
-  "Web Audio unavailable: visual editing and clear error remain"
-]

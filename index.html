@@ -3,20 +3,158 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <meta name="theme-color" content="#111f23" />
+    <meta name="theme-color" content="#0C0D12" />
     <meta
       name="description"
-      content="Draw a constellation. Hear an orbit. A free, private musical observatory by Beibars."
+      content="SIDEREAL. A free musical observatory by Beibars. Draw a constellation, hear an orbit."
     />
     <link rel="icon" href="./favicon.svg" type="image/svg+xml" />
-    <title>SIDEREAL — a musical observatory</title>
+    <title>SIDEREAL — musical observatory</title>
+    <style>
+      html,
+      body {
+        margin: 0;
+        background: #0c0d12;
+        color: #f2f3f7;
+      }
+      #boot-screen {
+        position: fixed;
+        inset: 0;
+        background: #0c0d12;
+        z-index: 200;
+        display: grid;
+        place-items: center;
+        font:
+          16px "Segoe UI",
+          sans-serif;
+        transition: opacity 0.24s ease;
+      }
+      #boot-screen.ready {
+        opacity: 0;
+        pointer-events: none;
+      }
+      .boot-body {
+        text-align: center;
+        max-width: 360px;
+        padding: 24px;
+      }
+      .boot-orbit {
+        width: 144px;
+        height: 144px;
+        margin-bottom: 28px;
+      }
+      .boot-orbit circle,
+      .boot-orbit path {
+        fill: none;
+        stroke: #b9c9ff;
+        stroke-width: 1.4;
+      }
+      .boot-orbit .boot-star {
+        fill: #b9c9ff;
+        stroke: none;
+      }
+      .boot-ring {
+        stroke-dasharray: 360;
+        animation: assemble 1.3s ease both;
+      }
+      .boot-links {
+        stroke-dasharray: 180;
+        animation: assemble 1s 0.2s ease both;
+      }
+      .boot-body h1 {
+        font-size: 20px;
+        letter-spacing: 0.2em;
+        font-weight: 500;
+      }
+      .boot-body p {
+        color: #a7adbd;
+        line-height: 1.6;
+      }
+      .boot-body button {
+        color: #0c0d12;
+        background: #b9c9ff;
+        border: 0;
+        border-radius: 8px;
+        padding: 14px 22px;
+        font: inherit;
+        cursor: pointer;
+      }
+      .boot-body button:focus-visible {
+        outline: 3px solid #f2f3f7;
+        outline-offset: 4px;
+      }
+      @keyframes assemble {
+        from {
+          stroke-dashoffset: 360;
+          opacity: 0;
+        }
+        to {
+          stroke-dashoffset: 0;
+          opacity: 1;
+        }
+      }
+      @media (prefers-reduced-motion: reduce) {
+        #boot-screen {
+          transition: none;
+        }
+        .boot-ring,
+        .boot-links {
+          animation: none;
+        }
+      }
+    </style>
   </head>
   <body>
-    <div id="app"></div>
-    <script type="module" src="./src/main.ts"></script>
+    <div id="boot-screen" role="status">
+      <div class="boot-body">
+        <svg class="boot-orbit" viewBox="0 0 160 160" aria-hidden="true">
+          <circle class="boot-ring" cx="80" cy="80" r="58" />
+          <circle cx="80" cy="80" r="32" opacity=".3" />
+          <path class="boot-links" d="M80 22 130 109 53 133 48 76 80 22" />
+          <circle class="boot-star" cx="80" cy="22" r="4" />
+          <circle class="boot-star" cx="130" cy="109" r="3" />
+          <circle class="boot-star" cx="53" cy="133" r="3" />
+          <circle class="boot-star" cx="48" cy="76" r="3" />
+        </svg>
+        <h1>SIDEREAL</h1>
+        <p id="boot-status">Preparing your observatory</p>
+        <div id="boot-error" hidden>
+          <p id="boot-error-message">
+            The observatory could not load. Your saved skies are still on this
+            device.
+          </p>
+          <button id="boot-retry">Try again</button>
+        </div>
+      </div>
+    </div>
+    <div id="app" aria-busy="true"></div>
+    <script>
+      window.siderealBootFailure = function () {
+        document.getElementById("boot-status").hidden = true;
+        document.getElementById("boot-error").hidden = false;
+        try {
+          if (localStorage.getItem("sidereal.language") === "ru") {
+            document.getElementById("boot-error-message").textContent =
+              "Не удалось открыть обсерваторию. Сохранённые композиции остаются на устройстве.";
+            document.getElementById("boot-retry").textContent =
+              "Попробовать ещё раз";
+          }
+        } catch {}
+      };
+      document
+        .getElementById("boot-retry")
+        .addEventListener("click", function () {
+          location.reload();
+        });
+    </script>
+    <script
+      type="module"
+      src="./src/boot.ts"
+      onerror="window.siderealBootFailure()"
+    ></script>
     <noscript
       >SIDEREAL needs JavaScript to draw and play your musical constellations.
-      No account or internet connection is needed after loading.</noscript
+      Saved music stays on your device.</noscript
     >
   </body>
 </html>

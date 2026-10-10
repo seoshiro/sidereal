@@ -18,7 +18,8 @@ export const ROOTS = [
   "B♭",
   "B",
 ];
-export const COLORS = ["#dcbb87", "#90baba", "#b7a7cb"];
+import { PALETTE } from "./palette";
+export const COLORS = PALETTE.layers;
 export type Scale = keyof typeof SCALES;
 export type Voice = "bell" | "felt" | "tide";
 export interface Star {
