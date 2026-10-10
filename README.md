@@ -30,6 +30,8 @@ Local browser storage is not a backup. Clearing site data removes saved composit
 
 ## Keyboard, touch and motion
 
+- **SIDEREAL** returns to the main editor without reloading or clearing your score, draft or atlas. It exits Listening mode and closes auxiliary views; during the guide it restores your own sky and marks practice skipped. Mobile sheets and dialogs offer the same logo action.
+- The loading screen remains for two additional seconds after real preparation, as requested. The same delay applies with reduced motion; failures immediately expose Retry. Editing shortcuts are blocked while the screen is present. Returning through the logo never restarts loading.
 - **Space** plays/pauses outside form controls; **Escape** stops sound and closes the mobile note sheet or export menu.
 - Focus a star: **Left/Right** changes time, **Up/Down** changes pitch, **Enter** opens exact parameters, **Delete/Backspace** removes it.
 - **Ctrl/Cmd + Z** undoes; **Ctrl/Cmd + Shift + Z** redoes. History holds 60 edits and resets on reload. Play and Undo retain focus across UI updates.

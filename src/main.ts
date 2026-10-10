@@ -831,6 +831,20 @@ function closePanel() {
   $(panelReturn)?.focus({ preventScroll: true });
   syncLesson();
 }
+function returnHome() {
+  if (lesson) finishTour(true);
+  closePanel();
+  document
+    .querySelectorAll<HTMLDialogElement>("dialog[open]")
+    .forEach((dialog) => dialog.close());
+  for (const id of ["export-menu", "note-list", "tuning"])
+    $<HTMLDetailsElement>(id).open = false;
+  listening = false;
+  $("inspector").scrollTop = 0;
+  update();
+  $("action-home").focus({ preventScroll: true });
+  window.scrollTo({ top: 0, left: 0, behavior: "instant" });
+}
 function add(position = { step: Math.floor(engine.beat * 2) % 32, degree: 6 }) {
   if (score.stars.length >= 96) {
     message("limit");
@@ -1072,6 +1086,9 @@ function bind() {
     const action = target?.dataset.action;
     if (action) {
       switch (action) {
+        case "home":
+          returnHome();
+          break;
         case "play":
           await togglePlay();
           break;
@@ -1434,6 +1451,11 @@ function bind() {
   window.addEventListener("pointercancel", endDrag);
   window.addEventListener("keydown", (event) => {
     const el = event.target as HTMLElement;
+    if (app.inert) {
+      if (el === document.body && event.code === "Space")
+        event.preventDefault();
+      return;
+    }
     if (event.key === "Escape") {
       $<HTMLDetailsElement>("export-menu").open = false;
       if (el.closest("#export-menu"))

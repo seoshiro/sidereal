@@ -1,0 +1,76 @@
+[
+  {
+    "loading": {
+      "reducedMotion": false,
+      "additionalMilliseconds": 2007.5999999940395,
+      "fadeMilliseconds": 243.5
+    }
+  },
+  {
+    "name": "real preparation plus approximately two seconds; no percentage; silent/inert while loading",
+    "status": "pass"
+  },
+  {
+    "name": "first-tour logo return restores original sky and marks practice skipped without draft/atlas writes",
+    "status": "pass"
+  },
+  {
+    "name": "normal return closes disclosures, preserves score/draft/atlas and does not restart loader",
+    "status": "pass"
+  },
+  {
+    "name": "keyboard Enter exits listening while preserving active playback and user data",
+    "status": "pass"
+  },
+  {
+    "name": "actual logo controls return from atlas, dense picker, clipboard fallback and export menu",
+    "status": "pass"
+  },
+  {
+    "name": "return from modified practice restores user edits and Undo/Redo history",
+    "status": "pass"
+  },
+  {
+    "name": "RU/EN keyboard names and pending shared URL survive logo/tour return",
+    "status": "pass"
+  },
+  {
+    "loading": {
+      "reducedMotion": false,
+      "additionalMilliseconds": 2002.2999999970198,
+      "fadeMilliseconds": 246
+    }
+  },
+  {
+    "name": "touch RU mobile sheet/atlas/listening/tour returns preserve raw storage and reload",
+    "status": "pass"
+  },
+  {
+    "loading": {
+      "reducedMotion": true,
+      "additionalMilliseconds": 2017.9000000059605,
+      "fadeMilliseconds": 0
+    }
+  },
+  {
+    "name": "reduced motion still adds two seconds, has no assembly animation or fade",
+    "status": "pass"
+  },
+  {
+    "loading": {
+      "reducedMotion": false,
+      "additionalMilliseconds": 2015.4000000059605,
+      "fadeMilliseconds": 239.90000000596046
+    }
+  },
+  {
+    "name": "module failure shows immediate error; Retry keeps the requested success delay",
+    "status": "pass"
+  },
+  {
+    "url": "http://127.0.0.1:4173/",
+    "browser": "153.0.8010.12",
+    "pageErrors": [],
+    "checkedAt": "2026-10-10T13:44:31.038Z"
+  }
+]

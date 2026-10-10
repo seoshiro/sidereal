@@ -138,6 +138,7 @@ a:hover {
   flex-wrap: wrap;
 }
 .brand {
+  padding: 0;
   display: flex;
   align-items: center;
   gap: 11px;
@@ -145,6 +146,26 @@ a:hover {
   letter-spacing: 0.18em;
   font-weight: 600;
   white-space: nowrap;
+}
+.panel-home {
+  display: none;
+}
+.home-link {
+  color: var(--accent);
+  font-size: 0.875rem;
+  letter-spacing: 0.1em;
+  padding: 8px 4px;
+}
+.dialog-heading {
+  flex-wrap: wrap;
+}
+@media (max-width: 760px) {
+  .panel-home {
+    display: inline-flex;
+  }
+  .panel-heading {
+    flex-wrap: wrap;
+  }
 }
 .brand .icon {
   width: 27px;
@@ -943,6 +964,8 @@ dialog::backdrop {
   margin-bottom: 20px;
 }
 .dialog-heading h2 {
+  flex: 1;
+  min-width: 0;
   font:
     1.8rem Georgia,
     serif;

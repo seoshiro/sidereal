@@ -1,4 +1,5 @@
 export const words = {
+  home: ["SIDEREAL — Back to editor", "SIDEREAL — Вернуться в редактор"],
   atlas: ["Atlas & presets", "Атлас и пресеты"],
   listenmode: ["Listening mode", "Прослушивание"],
   editmode: ["Back to editing", "Вернуться к редактору"],

@@ -42,7 +42,15 @@ The deployed source revision is [`189dbe9`](https://github.com/seoshiro/sidereal
 
 The default exported WAV decoded with peak **0.06511** and RMS **0.01065** across stereo channels. The 96-note test at 80% master volume decoded with peak **0.22169**; all layers muted produced exact zero. This is numeric evidence and does not imply listening quality.
 
-Final screenshots were captured from GitHub Pages. The loading captures hold the actual module request so the real preparation state can be inspected; the product adds no artificial preparation delay. A separate screenshot audit caught overlapping layer names at 200% text despite a passing overflow assertion. The corrected layout stacks layers and panel triggers, gives the title its own row, and keeps all text readable.
+Final screenshots were captured from GitHub Pages. The loading captures hold the actual module request so the real preparation state can be inspected. The later user-requested change adds two seconds after preparation, without fake percentages. A separate screenshot audit caught overlapping layer names at 200% text despite a passing overflow assertion. The corrected layout stacks layers and panel triggers, gives the title its own row, and keeps all text readable.
+
+## Logo return and loading follow-up
+
+`scripts/home-loader-qa.mjs` checks the follow-up independently of the earlier music audit: actual additional loading duration; inert/silent loading and blocked Space shortcut; first-tour logo exit; ordinary editor and disclosure return; Enter/Space keyboard activation; listening return with uninterrupted playback; atlas, dense-picker and clipboard-fallback dialog return; tour data/history restoration; RU/EN names; pending shared URL preservation; real mobile touch in sheet/dialog/listening/tour; reload; reduced motion; immediate load failure and working Retry. Score, draft and atlas are compared before/after as exact data, not only note counts.
+
+The logo is a native button. Its action does not navigate or reload. It closes auxiliary views, scrolls to the editor, preserves user music/history, and restores the original score when leaving practice. Modal views include an equivalent SIDEREAL action because the underlying header is correctly inert.
+
+The [ten-scenario follow-up receipt](home-loader-local-report.json) includes measured delay and reduced-motion timings. Actual mobile [note sheet](screenshots/home-mobile-panel.png) and [atlas](screenshots/home-mobile-atlas.png) captures show the equivalent logo controls inside modals.
 
 ## Remaining verification limits
 

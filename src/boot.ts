@@ -3,6 +3,8 @@ import { applyPalette } from "./palette";
 applyPalette();
 let timeout: number;
 async function prepare() {
+  const app = document.querySelector<HTMLElement>("#app")!;
+  app.inert = true;
   const status = document.querySelector<HTMLElement>("#boot-status")!;
   const ru = (() => {
     try {
@@ -25,7 +27,15 @@ async function prepare() {
       }),
     ]);
     clearTimeout(timeout!);
+    app.inert = false;
     await module.initialize();
+    const initialFocus = document.activeElement as HTMLElement;
+    app.inert = true;
+    // User-requested two-second pause after real preparation, including reduced motion.
+    await new Promise<void>((resolve) => window.setTimeout(resolve, 2000));
+    app.inert = false;
+    if (initialFocus !== document.body && initialFocus.isConnected)
+      initialFocus.focus({ preventScroll: true });
     document.querySelector("#app")?.removeAttribute("aria-busy");
     const screen = document.querySelector<HTMLElement>("#boot-screen")!;
     screen.classList.add("ready");
@@ -34,6 +44,7 @@ async function prepare() {
     });
     if (matchMedia("(prefers-reduced-motion: reduce)").matches) screen.remove();
   } catch {
+    app.inert = true;
     clearTimeout(timeout!);
     (
       window as unknown as { siderealBootFailure: () => void }
